@@ -37,7 +37,7 @@ namespace TestTry
             if (health1 < 0 && health2 < 0)
             {
                 Console.WriteLine("Ничья, все погибли");
-
+                
             }
             else if (health1 <= 0)
             {
@@ -49,7 +49,7 @@ namespace TestTry
                 Console.WriteLine("Гладиатор два пал");
 
             }
-             //nhjbhjdiashidhasihjio
+             
             Console.WriteLine("Git Блин");
             Console.ReadKey();
 
