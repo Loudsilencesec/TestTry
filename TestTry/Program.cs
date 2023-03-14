@@ -49,7 +49,7 @@ namespace TestTry
                 Console.WriteLine("Гладиатор два пал");
 
             }
-
+             //nhjbhjdiashidhasihjio
             Console.WriteLine("Git Блин");
             Console.ReadKey();
 
