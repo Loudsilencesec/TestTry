@@ -50,7 +50,9 @@ namespace TestTry
 
             }
 
+            Console.WriteLine("Git Блин");
             Console.ReadKey();
+
 
 
 
