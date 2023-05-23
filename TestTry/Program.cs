@@ -53,51 +53,76 @@ namespace TestTry
             //Console.WriteLine("Git Блять");
             //Console.ReadKey();
 
-            double num1, num2;
-            string operand;
+            bool exit = false;
 
             Console.WriteLine("Простой калькулятор");
             Console.WriteLine("-------------------");
             Console.WriteLine();
 
-            Console.Write("Введите первое число: ");
-            num1 = Convert.ToDouble(Console.ReadLine());
-
-            Console.Write("Введите оператор (+, -, *, /): ");
-            operand = Console.ReadLine();
-
-            Console.Write("Введите второе число: ");
-            num2 = Convert.ToDouble(Console.ReadLine());
-
-            double result = 0;
-
-            switch (operand)
+            while (!exit)
             {
-                case "+":
-                    result = num1 + num2;
-                    break;
-                case "-":
-                    result = num1 - num2;
-                    break;
-                case "*":
-                    result = num1 * num2;
-                    break;
-                case "/":
-                    result = num1 / num2;
-                    break;
-                default:
-                    Console.WriteLine("Некорректный оператор");
-                    break;
+                double num1, num2;
+                string operand;
+
+                Console.Write("Введите первое число: ");
+                if (!double.TryParse(Console.ReadLine(), out num1))
+                {
+                    Console.WriteLine("Некорректный ввод!");
+                    continue;
+                }
+
+                Console.Write("Введите оператор (+, -, *, /): ");
+                operand = Console.ReadLine();
+
+                Console.Write("Введите второе число: ");
+                if (!double.TryParse(Console.ReadLine(), out num2))
+                {
+                    Console.WriteLine("Некорректный ввод!");
+                    continue;
+                }
+
+                double result = 0;
+
+                switch (operand)
+                {
+                    case "+":
+                        result = num1 + num2;
+                        break;
+                    case "-":
+                        result = num1 - num2;
+                        break;
+                    case "*":
+                        result = num1 * num2;
+                        break;
+                    case "/":
+                        if (num2 != 0)
+                            result = num1 / num2;
+                        else
+                        {
+                            Console.WriteLine("Деление на ноль невозможно!");
+                            continue;
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Некорректный оператор");
+                        continue;
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Результат: " + result);
+                Console.WriteLine();
+
+                Console.Write("Хотите продолжить использовать калькулятор? (y/n): ");
+                string choice = Console.ReadLine();
+
+                if (choice.ToLower() == "n")
+                    exit = true;
+
+                Console.WriteLine();
             }
 
-            Console.WriteLine();
-            Console.WriteLine("Результат: " + result);
-
+            Console.WriteLine("До свидания!");
             Console.ReadLine();
-
-
-
-
 
 
 
